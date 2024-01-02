@@ -4,13 +4,15 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	<title>My Career </title>
 	<style>
+		
 		h1{
 			font-size: 40px;
 			font-family: Roboto;
 			font-weight: normal;
-			color: rgb(100, 100, 210);
+			/* color: rgb(100, 100, 210); */
 			text-align: center;
 		}
 		#banner{
@@ -31,25 +33,47 @@
 			font-family: Roboto;
 			color: rgb(80, 80, 80);
 		}
-		#container{
-			max-width: 720px
-			margin: 0 auto;
+		.container{
+			/* margin: 0 auto; */
+			padding: 5;
 		}
 	</style>
 </head>
 <body>
-	<div id="container">
-	<h1>Hello Dear you will learn about Job opening in your career</h1>
-	<img id="banner" src="static/saulo-mohana-wNz7_5EvUWU-unsplash.jpg" height="300" >
-	<h2>About My Career</h2>
-	<p class="bobytext">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec luctus lectus, tincidunt tincidunt sem. Morbi vel finibus mauris. Aliquam sollicitudin euismod hendrerit. Suspendisse mollis quis turpis euismod pellentesque. Maecenas non dapibus quam. Nullam nec facilisis tortor. Aliquam eu diam id nisl egestas pharetra a vitae libero. Etiam purus sapien, tincidunt vulputate tellus et, tincidunt tempor magna. Maecenas tincidunt libero ac libero ornare, in iaculis sem scelerisque. Nullam id libero tempus, sollicitudin ligula quis, tincidunt ligula. Aliquam at est libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent commodo sed eros nec pellentesque. Donec sollicitudin, urna ac aliquet ultricies, leo arcu sollicitudin enim, et vestibulum urna sem quis orci. Praesent non libero sit amet ligula eleifend vestibulum. Vivamus iaculis aliquam congue.
-	</p>
-	<h2>Open Positions</h2>
-	<p class="bobytext">TODO - show the jobs here</p>
-		<div style="text-align:center;">
-	<button>Contact Us</button>
-			<p>&copy  Copyright 2023, Eze</p>
+	{% include 'nav.html' %}
+	<div class="container">
+		<h1 >Job Father</h1>
+		<!-- Title Text -->
+	<h2 class="mt-2 mb-4">Hello Dear you will learn about Job opening in your career</h2>
+		
+		<!-- Header Image -->
+	<img class="img-fluid w=100 h=300 text-align:center;" id="banner" src="static/saulo-mohana-wNz7_5EvUWU-unsplash.jpg"" >
+
+		<!-- About -->
+	<h2 class="mt-2 mb-4">About My Job Engine</h2>
+		<div class="row">
+			<div class='col-lg-6 col-md-6 col-md-12'>
+				<p class="lead">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec luctus lectus, tincidunt tincidunt sem. Morbi vel finibus mauris. Aliquam sollicitudin euismod hendrerit. Suspendisse mollis quis turpis euismod pellentesque. Maecenas non dapibus quam. Nullam nec facilisis tortor. Aliquam eu diam id nisl egestas pharetra a vitae libero. Etiam purus sapien, tincidunt vulputate tellus et, tincidunt tempor magna. Maecenas tincidunt libero ac libero ornare, in iaculis sem scelerisque. Nullam id libero tempus, sollicitudin ligula quis, tincidunt ligula. Aliquam at est libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent commodo sed eros nec pellentesque. Donec sollicitudin, urna ac aliquet ultricies, leo arcu sollicitudin enim, et vestibulum urna sem quis orci. Praesent non libero sit amet ligula eleifend vestibulum. Vivamus iaculis aliquam congue.
+				</p>
 		</div>
+		<div class='col-lg-6 col-md-6 col-md-12'>
+			<img src="/static/logo.jpg" alt="" style="height:350px; border-radius:6px; width:100%; object-fit:cover;">
+			</div>
+	</div>
+		<!-- Job Openings -->
+	<h2 class="mt-2 mb-4">Job Openings</h2>
+		<div>
+			{% for job in jobs %}
+				{% include 'jobitems.html' %}
+			{% endfor %}
+		</div>
+
+	
+		<div class="mt-4" style="text-align:center; ">
+			<button  type="button" class="btn btn-primary">Contact Us</button>
+			
+		</div>
+		{% include 'footer.html' %}
 </body>
 </html>
